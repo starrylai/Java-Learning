@@ -77,9 +77,10 @@ public class Portal {
         private static void register(ArrayList<User> list){
             Scanner sc = new Scanner(System.in);
             //用户名设置
+            String userName;
             while(true){
                 System.out.println("请输入用户名");
-                String userName = sc.next();
+                userName = sc.next();
                 boolean flag = checkUsername(userName);//校验用户名格式
                 if(!flag){
                     continue;
@@ -94,9 +95,10 @@ public class Portal {
                 }
             }
             //密码设置
+            String password;
             while(true){
                 System.out.println("请输入新密码");
-                String password = sc.next();
+                password = sc.next();
                 System.out.println("请再次输入密码");
                 String secondPassword = sc.next();
                 if(password.equals(secondPassword)){//两次密码设置需一致
@@ -105,16 +107,59 @@ public class Portal {
                     System.out.println("两次输入的密码不一致，请重新输入");
                 }
             }
-            //身份证验证
+            //身份证号验证
+            String citizenID;
             while(true){
                 System.out.println("请输入身份证号");
-                String citizenID = sc.next();
+                citizenID = sc.next();
                 boolean flag = checkCitizenID(citizenID);
                 if(flag){
                     System.out.println("身份证号验证成功");break;
                 }
             }
 
+            //手机号验证
+            String phoneNumber;
+            while(true){
+                System.out.println("请输入手机号");
+                phoneNumber = sc.next();
+                boolean flag = checkPhoneNumber(phoneNumber);
+                if(flag){
+                    System.out.println("手机号验证成功");break;
+                }
+            }
+
+            User u = new User(userName, password, citizenID, phoneNumber);
+            list.add(u);
+            System.out.println("注册成功");
+
+            printList(list);
+        }
+
+        private static void printList(ArrayList<User> list){
+            for (int i = 0; i < list.size(); i++) {
+                User u = list.get(i);
+                System.out.println(u.getUsername()+','+u.getPassword()+','+u.getCitizenID()+','+u.getPhoneNumber());
+            }
+        }
+
+        private static boolean checkPhoneNumber(String phoneNumber){
+            if(phoneNumber.length() != 11){
+                System.out.println("手机号长度必须为11位");
+                return false;
+            }
+
+            if(phoneNumber.startsWith("0")){
+                System.out.println("手机号不能以0开头");
+                return false;
+            }
+
+            for (int i = 0; i < phoneNumber.length(); i++) {
+                if(!(phoneNumber.charAt(i) >= '0' && phoneNumber.charAt(i) <= '9')){
+                    System.out.println("手机号每一位必须为数字");
+                }
+            }
+            return true;
         }
 
         private static boolean checkCitizenID(String citizenID){
@@ -128,7 +173,18 @@ public class Portal {
             }
 
             for (int i = 0; i < citizenID.length()-1; i++) {
-                
+                if(!(citizenID.charAt(i) >= '0' && citizenID.charAt(i) <= '9')) {
+                    System.out.println("身份证号前17位必须都为数字");
+                    return false;
+                }
+            }
+
+            char endChar = citizenID.charAt(citizenID.length()-1);
+            if((endChar >= '0' && endChar <= '9') || (endChar == 'x' || endChar == 'X')){
+                return true;
+            }else{
+                System.out.println("身份证号最后一位为数字、x或者X");
+                return false;
             }
         }
 
@@ -162,7 +218,44 @@ public class Portal {
             return true;
         }
 
-        private static void resetPassword(ArrayList){}
+        private static void resetPassword(ArrayList<User> list){
+            System.out.println("请输入用户名");
+            Scanner sc = new Scanner(System.in);
+            String userName = sc.next();
+            boolean flag = contains(list,userName);
+            if(!flag){
+                System.out.println("当前用户："+userName+"未注册，请先注册");return;
+            }
+
+            int index = findIndex(list, userName);
+            System.out.println("请输入身份证号");
+            String citizenID = sc.next();
+            if(!(citizenID.equalsIgnoreCase(list.get(index).getCitizenID()))){
+                System.out.println("身份证号不匹配，无法修改密码");return;
+            }
+            System.out.println("请输入手机号");
+            String phoneNumber = sc.next();
+            if(!(phoneNumber.equals(list.get(index).getPhoneNumber()))){
+                System.out.println("手机号不匹配，无法修改密码");return;
+            }
+
+            //重置密码
+            String password;
+            while(true){
+                System.out.println("请输入新密码");
+                password = sc.next();
+                System.out.println("请再次输入密码");
+                String secondPassword = sc.next();
+                if(password.equals(secondPassword)){//两次密码设置需一致
+                    System.out.println("密码设置成功");break;
+                }else{
+                    System.out.println("两次输入的密码不一致，请重新输入");
+                }
+            }
+
+            list.get(index).setPassword(password);
+
+        }
 
         private static boolean checkUserInfo(String userName, String password, ArrayList<User> list){
             for (int i = 0; i < list.size(); i++) {
@@ -198,12 +291,20 @@ public class Portal {
             return new String(chars1);
         }
 
-        private static boolean contains(ArrayList<User> list, String userName) {
+        private static int findIndex(ArrayList<User> list, String userName){
             for (int i = 0; i < list.size(); i++) {
                 if (list.get(i).getUsername().equals(userName)) {
-                    return true;
+                    return i;
                 }
             }
-            return false;
+            return -1;
+        }
+
+        private static boolean contains(ArrayList<User> list, String userName) {
+            int result = findIndex(list, userName);
+            if(result == -1){
+                return false;
+            }
+            return true;
         }
 }
