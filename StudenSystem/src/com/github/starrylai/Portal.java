@@ -11,7 +11,7 @@ public class Portal {
         System.out.println("欢迎进入学生管理系统");
         Scanner sc = new Scanner(System.in);
         while (true) {
-            System.out.println("请输入数字选择：1登录；2注册；3忘记密码；4退出系统");
+            System.out.println("请输入数字选择：1登录；2注册；3忘记密码；4退出学生管理系统");
             int choose = sc.nextInt();
             switch (choose) {
                 case 1:
@@ -51,7 +51,7 @@ public class Portal {
                     System.out.println("验证码为："+VerificationCode);
                     System.out.println("请输入验证码");
                     String inputCode = sc.next();
-                    if(VerificationCode.equals(inputCode)){
+                    if(VerificationCode.equalsIgnoreCase(inputCode)){
                         System.out.println("验证码正确");break;
                     }else{
                         System.out.println("验证码错误，请重新输入验证码");
