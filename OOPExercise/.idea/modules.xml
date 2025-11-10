@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AreaCalculator/AreaCalculator.iml" filepath="$PROJECT_DIR$/AreaCalculator/AreaCalculator.iml" />
       <module fileurl="file://$PROJECT_DIR$/BankAccount/BankAccount.iml" filepath="$PROJECT_DIR$/BankAccount/BankAccount.iml" />
       <module fileurl="file://$PROJECT_DIR$/OOPExercise.iml" filepath="$PROJECT_DIR$/OOPExercise.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UserDeduplication/UserDeduplication.iml" filepath="$PROJECT_DIR$/UserDeduplication/UserDeduplication.iml" />
     </modules>
   </component>
 </project>
