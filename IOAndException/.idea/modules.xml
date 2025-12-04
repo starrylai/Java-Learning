@@ -3,8 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CsvDeduplicateAndMerge/CsvDeduplicateAndMerge.iml" filepath="$PROJECT_DIR$/CsvDeduplicateAndMerge/CsvDeduplicateAndMerge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ExceptionWrappingExample/ExceptionWrappingExample.iml" filepath="$PROJECT_DIR$/ExceptionWrappingExample/ExceptionWrappingExample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GenericUtils/GenericUtils.iml" filepath="$PROJECT_DIR$/GenericUtils/GenericUtils.iml" />
       <module fileurl="file://$PROJECT_DIR$/IOAndException.iml" filepath="$PROJECT_DIR$/IOAndException.iml" />
       <module fileurl="file://$PROJECT_DIR$/WordFrequency/WordFrequency.iml" filepath="$PROJECT_DIR$/WordFrequency/WordFrequency.iml" />
+      <module fileurl="file://$PROJECT_DIR$/logCleaning/logCleaning.iml" filepath="$PROJECT_DIR$/logCleaning/logCleaning.iml" />
     </modules>
   </component>
 </project>
