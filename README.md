@@ -26,3 +26,16 @@ This is a repository for Java learning.
 ### csvDeduplicateAndMerge
 CSV文件去重合并  
 `BufferedReader` `BufferedWriter` `StandardCharsets` `split` `LinkedHashMap`
+### GenericUtils
+泛型的使用
+泛型方法类型参数申明`<T, R>`；有界的类型参数`? super T``? extends R`  
+`Pair<L, R>`  
+`Function`接口：Lambda表达式`->`;方法引用`::`;匿名内部类实例化  
+### logCleaning
+提取日志    
+`LocalDateTime`解析：`DateTimeFormatter.ofPattern``LocalDateTime.parse`  
+### ExceptionWrapping
+异常包装  
+`Throwable`：`Error``Exception`  
+`Exception`：`RuntimeException`(Unchecked Exception);Checked Exception(`IOException``SQLException``FileNotFoundException``ClassNotFoundException`)  
+包装：`try``catch``throw new CustomException`其中`CustomException extends RuntimeException`
