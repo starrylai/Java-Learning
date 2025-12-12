@@ -48,12 +48,17 @@ CSV文件去重合并
 *函数式接口（Predicate<T> Function<T, R> Supplier<T> Consumer<T> UnaryOperator<T>） Lambda表达式(可以捕获effectively final的外部变量) 闭包*  
 *`Stream`:`list.stream`,`Stream.of`,`Stream.iterate`,`Stream.generate`,`Arrays.stream`,`IntStream`,`filter`,`map`,`flatmap`,`distinct`,`sorted`,`peek`,`limit`,`skip`,`forEach`,`collect`,`reduce`,`anyMatch`,`IntSummaryStatistics`(`IntStream`),`parallelStream`*  
 *`Collectors`:`groupingBy`,`partitioningBy`,`toMap`,`joining`,`summarizing`,`mapping`*  
-*`OptionL`:`Optional.of`,`Optional.ofNullable`,`Optional.empty`,`ifPresent`,`orElse/oeElseGet/orElseThrow`,链式操作`.map`,`.filter`*  
+*`OptionL`:`Optional.of`,`Optional.ofNullable`,`Optional.empty`,`ifPresent`,`orElse/orElseGet/orElseThrow`,链式操作`.map`,`.filter`*  
 ### (1) logSummary
 日志明细汇总  
 `groupingBy`,`summarizingDouble`  
 ### (2) courseFlatten
 课程`flatMap`去重
-
-
+### (3) filterAndSort
+给定关键词进行过滤与排序  
+`filter``sorted``Comparator`
+### (4) OptionalExample
+`Optional`处理空值  
+### (5) toMapConfilct
+处理`toMap`的键冲突
 
