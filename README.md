@@ -1,11 +1,11 @@
 # Java-Learning
 This is a repository for Java learning.  
   
-## 1、StudentSystem  
+## 1、Student System  
 *登陆注册 增删查改*  
 基础语法  
   
-## 2、OOPExercise  
+## 2、OOP Exercise  
 *面向对象编程练习*
 ### （1） BankAccount  
 银行账户系统建模 活期定期账户存取款与利息计算  
@@ -21,7 +21,7 @@ This is a repository for Java learning.
 订单状态转移  
 枚举`enum` `final`  
   
-## 3、IOAndException
+## 3、IO and Exception
 *核心类库 IO Exception*
 ### （1） WordFrequency
 文件中单词频率统计  
@@ -60,5 +60,23 @@ CSV文件去重合并
 ### (4) OptionalExample
 `Optional`处理空值  
 ### (5) toMapConfilct
-处理`toMap`的键冲突
+处理`toMap`的键冲突  
+  
+## 5、Thread and Concurrent
+*多线程与并发*  
+*创建线程：`Runnable``Callable``ExecutorService`(`ThreadPoolExecutor``ArrayBlockingQueue`)*  
+*同步与锁:`Synchronized``ReentrantLock`(公平锁：`new ReentrantLock(true)`;可轮询`.tryLock()`;可中断`.lockInterruptibly`;条件队列`lock.newCondition`:`await``awaitUninterruptibly``awaitNanos``signal``signalAll`)`ReentrantReadWriteLock`(读锁共享，写锁、读写锁之间互斥，单线程允许写锁降级为读锁，不允许锁升级防止死锁)*  
+*可见性与原子性：`volatile`（可见性、有序性）;`AtomicInteger``AtomicReference``AtomicBoolean``compareAndSet``LongAdder`（可见性、原子性）*  
+*并发集合：`ConcurrentHashMap``CopyOnWriteArrayList``BlockingQueue`(`ArrayBlockingQueue``LinkedBlockingQueue``ConcurrentLinkedQueue`)*  
+*`CompletableFuture`:`supplyAsync``thenApply``thenAccept``thenCompose``exceptionally`*  
+### (1) ThreadPoolBatch  
+任务批处理  
+`Executors.newFixedThreadPool``Callable``future.get()`  
+### (2) ProducerAndConsumer
+生产者与消费者  
+`LinkedBlockingQueue``put/take`  
+### (3) AtomicVsSynchronized
+`AtomicInteger` 与 `synchronized` 的性能比较  
+### (4) CompletableFutureCombine  
+`thenCombine`、`exceptionally`
 
