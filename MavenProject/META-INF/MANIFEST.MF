@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Built-By: l1597
+Class-Path: lib/slf4j-api-1.7.36.jar lib/logback-classic-1.2.13.jar li
+ b/logback-core-1.2.13.jar
+Created-By: Apache Maven 3.8.9
+Build-Jdk: 1.8.0_212
+Main-Class: org.example.App
+

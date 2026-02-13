@@ -79,4 +79,11 @@ CSV文件去重合并
 `AtomicInteger` 与 `synchronized` 的性能比较  
 ### (4) CompletableFutureCombine  
 `thenCombine`、`exceptionally`
-
+  
+## 6、MavenProject  
+*构建日志工具与测试*  
+### (1) 基于jdk8的Maven项目构建  
+### (2) SLF4J与logback的配置与实现  
+### (3) JUnit5与Mockito的配置与实现  
+### (4) Lombok的配置与实现  
+### (5) surefire/failsafe插件

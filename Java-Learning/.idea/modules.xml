@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/OOPExercise/AreaCalculator/AreaCalculator.iml" filepath="$PROJECT_DIR$/OOPExercise/AreaCalculator/AreaCalculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ConcurrencyAndThread/AtomicVsSynchronized/AtomicVsSynchronized.iml" filepath="$PROJECT_DIR$/ConcurrencyAndThread/AtomicVsSynchronized/AtomicVsSynchronized.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OOPExercise/BankAccount/BankAccount.iml" filepath="$PROJECT_DIR$/OOPExercise/BankAccount/BankAccount.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CasualExercise/CasualExercise.iml" filepath="$PROJECT_DIR$/CasualExercise/CasualExercise.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ConcurrencyAndThread/CompletableFutureCombine/CompletableFutureCombine.iml" filepath="$PROJECT_DIR$/ConcurrencyAndThread/CompletableFutureCombine/CompletableFutureCombine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ConcurrencyAndThread/ConcurrencyAndThread.iml" filepath="$PROJECT_DIR$/ConcurrencyAndThread/ConcurrencyAndThread.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Functional Programming/CourseFlatten/CourseFlatten.iml" filepath="$PROJECT_DIR$/Functional Programming/CourseFlatten/CourseFlatten.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IOAndException/CsvDeduplicateAndMerge/CsvDeduplicateAndMerge.iml" filepath="$PROJECT_DIR$/IOAndException/CsvDeduplicateAndMerge/CsvDeduplicateAndMerge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IOAndException/ExceptionWrappingExample/ExceptionWrappingExample.iml" filepath="$PROJECT_DIR$/IOAndException/ExceptionWrappingExample/ExceptionWrappingExample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Functional Programming/Functional Programming.iml" filepath="$PROJECT_DIR$/Functional Programming/Functional Programming.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IOAndException/GenericUtils/GenericUtils.iml" filepath="$PROJECT_DIR$/IOAndException/GenericUtils/GenericUtils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Java-Learning.iml" filepath="$PROJECT_DIR$/.idea/Java-Learning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FunctionalProgramming/OptionalExample/OptionalExample.iml" filepath="$PROJECT_DIR$/FunctionalProgramming/OptionalExample/OptionalExample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OOPExercise/OrderStatus/OrderStatus.iml" filepath="$PROJECT_DIR$/OOPExercise/OrderStatus/OrderStatus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ConcurrencyAndThread/ProducerAndConsumer/ProducerAndConsumer.iml" filepath="$PROJECT_DIR$/ConcurrencyAndThread/ProducerAndConsumer/ProducerAndConsumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StudenSystem/StudenSystem.iml" filepath="$PROJECT_DIR$/StudenSystem/StudenSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ConcurrencyAndThread/ThreadPoolBatch/ThreadPoolBatch.iml" filepath="$PROJECT_DIR$/ConcurrencyAndThread/ThreadPoolBatch/ThreadPoolBatch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OOPExercise/UserDeduplication/UserDeduplication.iml" filepath="$PROJECT_DIR$/OOPExercise/UserDeduplication/UserDeduplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IOAndException/WordFrequency/WordFrequency.iml" filepath="$PROJECT_DIR$/IOAndException/WordFrequency/WordFrequency.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FunctionalProgramming/filterAndSort/filterAndSort.iml" filepath="$PROJECT_DIR$/FunctionalProgramming/filterAndSort/filterAndSort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IOAndException/logCleaning/logCleaning.iml" filepath="$PROJECT_DIR$/IOAndException/logCleaning/logCleaning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Functional Programming/logSummary/logSummary.iml" filepath="$PROJECT_DIR$/Functional Programming/logSummary/logSummary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FunctionalProgramming/toMapConflict/toMapConflict.iml" filepath="$PROJECT_DIR$/FunctionalProgramming/toMapConflict/toMapConflict.iml" />
+    </modules>
+  </component>
+</project>
