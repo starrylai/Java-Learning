@@ -1,6 +1,6 @@
-# Java-Learning
 This is a repository for Java learning.  
-  
+
+# Java-Learning  
 ## 1、Student System  
 *登陆注册 增删查改*  
 基础语法  
@@ -80,10 +80,10 @@ CSV文件去重合并
 ### (4) CompletableFutureCombine  
 `thenCombine`、`exceptionally`
   
-## 6、MavenProject  
+# MavenProject  
 *构建日志工具与测试*  
-### (1) 基于jdk8的Maven项目构建  
-### (2) SLF4J与logback的配置与实现  
-### (3) JUnit5与Mockito的配置与实现  
-### (4) Lombok的配置与实现  
-### (5) surefire/failsafe插件
+## (1) 基于jdk8的Maven项目构建  
+## (2) SLF4J与logback的配置与实现  
+## (3) JUnit5与Mockito的配置与实现  
+## (4) Lombok的配置与实现  
+## (5) surefire/failsafe插件
