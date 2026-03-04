@@ -81,9 +81,34 @@ CSV文件去重合并
 `thenCombine`、`exceptionally`
   
 # MavenProject  
-*构建日志工具与测试*  
-## (1) 基于jdk8的Maven项目构建  
-## (2) SLF4J与logback的配置与实现  
-## (3) JUnit5与Mockito的配置与实现  
-## (4) Lombok的配置与实现  
-## (5) surefire/failsafe插件
+## 1、构建日志工具与测试  
+### (1) 基于jdk8的Maven项目构建  
+### (2) SLF4J与logback的配置与实现  
+*日志门面与实现*
+### (3) JUnit5与Mockito的配置与实现  
+*单元测试与解耦合*
+### (4) Lombok的配置与实现  
+*注解简化代码*
+### (5) surefire/failsafe插件  
+*单元测试与集成测试*  
+  
+## 2、Web与REST  
+*后续通过Spring Boot构建学生管理API*  
+  
+## 3、MySQL  
+### (1) ER建模
+涉及的SQL的DDL（建表、建索引）和DML（测试约束）操作通过JDBC连接到MySQL实现（见`CreatTables.java`）  
+### (2) 统计查询  
+JDBC实现于`StudentCourseStats.java`
+`group by`:`select`只能使用聚合函数及`group by`引用的字段  
+`having`作用于分组后的聚合值  
+`inner join`只返回两表都有匹配记录的行；`left join`返回左表所有记录及右表匹配记录  
+### (3) 事务演示  
+JDBC实现于`TransactionDemo.java`  
+脏读：`Read Uncommitted`可发生，`Read Committed`及以上隔离级别不可发生；  
+不可重复读：`Read Committed`及以下隔离级别可发生；  
+幻读：`Repeatable Read`及以下隔离级别可发生， InnoDB 通过间隙锁解决了`Repeatable Read`可能幻读的问题；  
+### (4) 索引对比  
+JDBC实现于`IndexComparison.java`，关注`explain`给出的查询信息  
+  
+## 4、JDBC与ORM  

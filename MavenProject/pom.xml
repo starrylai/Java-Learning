@@ -23,11 +23,12 @@
     <junit.jupiter.version>5.8.2</junit.jupiter.version>
     <mockito.version>4.6.1</mockito.version> <!-- Mockito 4.x 兼容 JDK 8 -->
     <lombok.version>1.18.30</lombok.version>
+    <mysql.version>8.0.33</mysql.version><!--服务端MySQL版本为8.0.45,Maven中央仓库暂时无法下载此版本驱动-->
   </properties>
 
   <dependencies>
 
-    <!--  lombok -->
+    <!-- lombok -->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
@@ -87,6 +88,13 @@
       <artifactId>mockito-junit-jupiter</artifactId>
       <version>${mockito.version}</version>
       <scope>test</scope>
+    </dependency>
+
+    <!-- mysql 8.0.45 -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${mysql.version}</version>
     </dependency>
 
   </dependencies>
