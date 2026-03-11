@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ORM.OneToManyExample.Mybatis.StudentMapper">
+
+    <!-- 定义课程的结果映射 -->
+    <resultMap id="CourseResultMap" type="Course">
+        <id property="id" column="c_id"/>
+        <result property="name" column="c_name"/>
+    </resultMap>
+
+    <!-- 定义选课记录的结果映射，包含课程 -->
+    <resultMap id="EnrollmentResultMap" type="Enrollment">
+        <association property="course" resultMap="CourseResultMap" />
+    </resultMap>
+
+    <!-- 定义学生结果映射，包含选课列表 -->
+    <resultMap id="StudentWithCoursesResultMap" type="Student">
+        <id property="id" column="s_id"/>
+        <result property="name" column="s_name"/>
+        <result property="age" column="s_age"/>
+        <result property="email" column="s_email"/>
+        <collection property="enrollments" ofType="Enrollment" resultMap="EnrollmentResultMap" />
+    </resultMap>
+
+    <!-- 查询所有学生及其选课（使用 LEFT JOIN 一次查询） -->
+    <select id="selectAllWithCourses" resultMap="StudentWithCoursesResultMap">
+        SELECT
+            s.id as s_id,
+            s.name as s_name,
+            s.age as s_age,
+            s.email as s_email,
+            c.id as c_id,
+            c.name as c_name
+        FROM student s
+                 LEFT JOIN enrollment e ON s.id = e.student_id
+                 LEFT JOIN course c ON e.course_id = c.id
+        ORDER BY s.id
+    </select>
+
+    <!-- 根据ID查询 -->
+    <select id="selectByIdWithCourses" resultMap="StudentWithCoursesResultMap">
+        SELECT
+            s.id as s_id,
+            s.name as s_name,
+            s.age as s_age,
+            s.email as s_email,
+            c.id as c_id,
+            c.name as c_name
+        FROM student s
+                 LEFT JOIN enrollment e ON s.id = e.student_id
+                 LEFT JOIN course c ON e.course_id = c.id
+        WHERE s.id = #{id}
+    </select>
+</mapper>

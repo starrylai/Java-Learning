@@ -4,7 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.example</groupId>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.7.18</version> <!-- 兼容 JDK 8 的最新版本 -->
+    <relativePath/>
+  </parent>
+
+  <groupId>ORM</groupId>
   <artifactId>MavenProject</artifactId>
   <version>1.0.0</version>
 
@@ -24,6 +31,7 @@
     <mockito.version>4.6.1</mockito.version> <!-- Mockito 4.x 兼容 JDK 8 -->
     <lombok.version>1.18.30</lombok.version>
     <mysql.version>8.0.33</mysql.version><!--服务端MySQL版本为8.0.45,Maven中央仓库暂时无法下载此版本驱动-->
+    <mybatis-starter.version>2.3.0</mybatis-starter.version>
   </properties>
 
   <dependencies>
@@ -32,7 +40,7 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.30</version>
+      <version>${lombok.version}</version>
       <scope>provided</scope>
     </dependency>
 
@@ -97,6 +105,30 @@
       <version>${mysql.version}</version>
     </dependency>
 
+    <!-- Spring Boot Web -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- Spring Data JPA (包含 Hibernate 和 Spring 事务管理) -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.mybatis.spring.boot</groupId>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
+      <version>${mybatis-starter.version}</version> <!-- 兼容 Spring Boot 2.7 -->
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -144,6 +176,11 @@
         <plugin>
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
+        </plugin>
+        <!-- Spring Boot Maven 插件（用于打包运行） -->
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -214,6 +251,7 @@
           </execution>
         </executions>
       </plugin>
+
     </plugins>
   </build>
 </project>

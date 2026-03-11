@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ORM.mapper.StudentMapper">
+
+    <!-- 结果映射，可将数据库列映射到实体字段（驼峰自动转换可简化） -->
+    <resultMap id="BaseResultMap" type="Student">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="age" column="age"/>
+        <result property="email" column="email"/>
+    </resultMap>
+
+    <!-- 查询单个 -->
+    <select id="selectById" resultMap="BaseResultMap">
+        SELECT id, name, age, email FROM student WHERE id = #{id}
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectAll" resultType="Student">
+        SELECT id, name, age, email FROM student
+    </select>
+
+    <!-- 插入，自动生成主键 -->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO student (name, age, email) VALUES (#{name}, #{age}, #{email})
+    </insert>
+
+    <!-- 更新 -->
+    <update id="update">
+        UPDATE student
+        SET name = #{name}, age = #{age}, email = #{email}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 删除 -->
+    <delete id="deleteById">
+        DELETE FROM student WHERE id = #{id}
+    </delete>
+
+    <!-- 动态 SQL：条件查询 + 分页 -->
+    <select id="selectByPage" resultType="Student">
+        SELECT id, name, age, email
+        FROM student
+        <where>
+            <if test="name != null and name != ''">
+                name LIKE CONCAT(#{name}, '%')
+            </if>
+        </where>
+        ORDER BY id DESC
+        LIMIT #{offset}, #{size}
+    </select>
+
+    <select id="countByName" resultType="long">
+        SELECT COUNT(*)
+        FROM student
+        <where>
+            <if test="name != null and name != ''">
+                name LIKE CONCAT(#{name}, '%')
+            </if>
+        </where>
+    </select>
+</mapper>

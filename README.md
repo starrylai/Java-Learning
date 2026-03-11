@@ -1,11 +1,11 @@
 This is a repository for Java learning.  
 
 # Java-Learning  
-## 1、Student System  
+## 1. Student System  
 *登陆注册 增删查改*  
 基础语法  
   
-## 2、OOP Exercise  
+## 2. OOP Exercise  
 *面向对象编程练习*
 ### （1） BankAccount  
 银行账户系统建模 活期定期账户存取款与利息计算  
@@ -21,7 +21,7 @@ This is a repository for Java learning.
 订单状态转移  
 枚举`enum` `final`  
   
-## 3、IO and Exception
+## 3. IO and Exception
 *核心类库 IO Exception*
 ### （1） WordFrequency
 文件中单词频率统计  
@@ -43,7 +43,7 @@ CSV文件去重合并
 `Exception`：`RuntimeException`(Unchecked Exception);Checked Exception(`IOException``SQLException``FileNotFoundException``ClassNotFoundException`)  
 包装：`try``catch``throw new CustomException`其中`CustomException extends RuntimeException`  
   
-## 4、Functional Programming
+## 4. Functional Programming
 *函数式编程与核心特征*  
 *函数式接口（Predicate<T> Function<T, R> Supplier<T> Consumer<T> UnaryOperator<T>） Lambda表达式(可以捕获effectively final的外部变量) 闭包*  
 *`Stream`:`list.stream`,`Stream.of`,`Stream.iterate`,`Stream.generate`,`Arrays.stream`,`IntStream`,`filter`,`map`,`flatmap`,`distinct`,`sorted`,`peek`,`limit`,`skip`,`forEach`,`collect`,`reduce`,`anyMatch`,`IntSummaryStatistics`(`IntStream`),`parallelStream`*  
@@ -62,7 +62,7 @@ CSV文件去重合并
 ### (5) toMapConfilct
 处理`toMap`的键冲突  
   
-## 5、Thread and Concurrent
+## 5. Thread and Concurrent
 *多线程与并发*  
 *创建线程：`Runnable``Callable``ExecutorService`(`ThreadPoolExecutor``ArrayBlockingQueue`)*  
 *同步与锁:`Synchronized``ReentrantLock`(公平锁：`new ReentrantLock(true)`;可轮询`.tryLock()`;可中断`.lockInterruptibly`;条件队列`lock.newCondition`:`await``awaitUninterruptibly``awaitNanos``signal``signalAll`)`ReentrantReadWriteLock`(读锁共享，写锁、读写锁之间互斥，单线程允许写锁降级为读锁，不允许锁升级防止死锁)*  
@@ -81,7 +81,7 @@ CSV文件去重合并
 `thenCombine`、`exceptionally`
   
 # MavenProject  
-## 1、构建日志工具与测试  
+## 1. 构建日志工具与测试  
 ### (1) 基于jdk8的Maven项目构建  
 ### (2) SLF4J与logback的配置与实现  
 *日志门面与实现*
@@ -92,10 +92,10 @@ CSV文件去重合并
 ### (5) surefire/failsafe插件  
 *单元测试与集成测试*  
   
-## 2、Web与REST  
+## 2. Web与REST  
 *后续通过Spring Boot构建学生管理API*  
   
-## 3、MySQL  
+## 3. MySQL  
 ### (1) ER建模
 涉及的SQL的DDL（建表、建索引）和DML（测试约束）操作通过JDBC连接到MySQL实现（见`CreatTables.java`）  
 ### (2) 统计查询  
@@ -111,4 +111,14 @@ JDBC实现于`TransactionDemo.java`
 ### (4) 索引对比  
 JDBC实现于`IndexComparison.java`，关注`explain`给出的查询信息  
   
-## 4、JDBC与ORM  
+## 4. JDBC与ORM  
+*JDBC：HikariCP进行连接管理，`prepareStatement`：提高多次执行效率与安全性*  
+*JPA：实体映射`@Entity` `@Table` `@Id @GeneratedValue(strategy=GenerationType.IDENTITY)`；关系映射`@OneToMany` `@ManyToOne` 懒加载导致N+1次查询 `join fetch`;JpaRepository；`@Query`*  
+*MyBatis：xml自动映射；动态SQL；一级和二级缓存*  
+### (1) CRUD  
+JDBC预编译`prepareStatement`；JPA`JpaRepository`减少DAO层代码量；MyBatis`Mapper.xml`映射  
+### (2) 分页与模糊查询  
+JPA:`findByNameContaining``PageRequest`；MyBatis：`LIMIT #{offset}, #{size}`，实际业务考虑一致性可游标分页  
+### (3) OneToManyExample  
+JPA:`@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)`通过`JOIN FETCH`避免N+1；Session 关闭后访问懒加载属性会抛异常，本例通过`@Transactional`事务边界覆盖解决  
+MyBatis:`association`建立一对一关联，`collection`建立一对多关联，确保属性名与列名匹配
