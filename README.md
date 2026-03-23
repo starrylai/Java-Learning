@@ -93,8 +93,41 @@ CSV文件去重合并
 *单元测试与集成测试*  
   
 ## 2. Web与REST  
-*后续通过Spring Boot构建学生管理API*  
-  
+*建立学生管理API（见`package HTTP`）+Postman发送请求*
+### (1) REST资源URI  
+`/students` `/students/{studentId}` `/students/{studentId}/enrollments`  
+查询`?page=0&size=5&sort=enrollmentDate,desc&name=Ali`  
+方法：GET POST PUT PATCH DELETE  
+bash:  
+curl -X POST "http://localhost:8080/api/v1/students" \  
+-H "Content-Type: application/json" \  
+-d '{"name": "Alice", "email": "alice@example.com"}'  
+### (2) 错误响应  
+统一错误响应体：  
+public class ErrorResponse {
+    private Instant timestamp;
+    private String path;
+    private String code;
+    private String message;
+    private Object details;
+}  
+常见错误码：  
+MISSING_REQUIRED_FIELD 400 缺少必填字段  
+UNAUTHORIZED 401 未认证或认证失败  
+FORBIDDEN 403 无权限访问资源  
+RESOURCE_NOT_FOUND 404 资源不存在  
+CONFLICT 409资源冲突  
+### (3) Postman CRUD  
+`baseUrl:http://localhost:8080/api/v1`  
+请求e.g.:  
+POST：`{{baseUrl}}/students`  
+断言：`pm.test("Status 201", () => pm.response.to.have.status(201));`  
+### (4) 分页/过滤  
+bash:
+curl "http://localhost:8080/api/v1/students?page=0&size=20"  
+curl "http://localhost:8080/api/v1/students?page=1&size=10&name=Alice"  
+curl "http://localhost:8080/api/v1/students?page=0&size=15&name=Bob&sort=enrollmentDate,desc"  
+
 ## 3. MySQL  
 ### (1) ER建模
 涉及的SQL的DDL（建表、建索引）和DML（测试约束）操作通过JDBC连接到MySQL实现（见`CreatTables.java`）  
@@ -121,4 +154,5 @@ JDBC预编译`prepareStatement`；JPA`JpaRepository`减少DAO层代码量；MyBa
 JPA:`findByNameContaining``PageRequest`；MyBatis：`LIMIT #{offset}, #{size}`，实际业务考虑一致性可游标分页  
 ### (3) OneToManyExample  
 JPA:`@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)`通过`JOIN FETCH`避免N+1；Session 关闭后访问懒加载属性会抛异常，本例通过`@Transactional`事务边界覆盖解决  
-MyBatis:`association`建立一对一关联，`collection`建立一对多关联，确保属性名与列名匹配
+MyBatis:`association`建立一对一关联，`collection`建立一对多关联，确保属性名与列名匹配  
+
