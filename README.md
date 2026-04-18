@@ -155,4 +155,13 @@ JPA:`findByNameContaining``PageRequest`；MyBatis：`LIMIT #{offset}, #{size}`�
 ### (3) OneToManyExample  
 JPA:`@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)`通过`JOIN FETCH`避免N+1；Session 关闭后访问懒加载属性会抛异常，本例通过`@Transactional`事务边界覆盖解决  
 MyBatis:`association`建立一对一关联，`collection`建立一对多关联，确保属性名与列名匹配  
-
+  
+# SpringBootProject  
+## 1. SpringCore与SpringBoot入门  
+### (1) HelloAPI  
+`HelloController.java`  
+### (2) 参数校验  
+`StudentCreateRequest.java`:`@NotBlank`,`@NotNull`,`@Size`;`StudentCotroller.java`:`@PostMapping`;  
+`ErrorResponse.java`;`GlobalExceptionHandler.java`:`@ExceptionHandler(MethodArgumentNotValidException.class)`  
+### (3) 配置绑定  
+`application.properties`;`AppProperties.java`:`@ConfigurationProperties(prefix = "XXX")``@Component`  
